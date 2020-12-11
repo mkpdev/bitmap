@@ -1,14 +1,14 @@
 class Bitmap
   attr_reader :height, :width, :bitmap
 
-  def create(m, n)
-    @width = m
-    @height = n
-    @bitmap = Array.new(height){ Array.new(width){ 'o' } }
+  def create(width, height)
+    @width  = width
+    @height = height
+    @bitmap = Array.new(height) { Array.new(width) { 'o' } }
   end
 
   def pixel_color(x, y, color = 'o')
-    @bitmap[y-1][x-1] = color
+    @bitmap[y - 1][x - 1] = color
   end
 
   def horizontal_color(x1, x2, y, color)
@@ -20,7 +20,7 @@ class Bitmap
   end
 
   def clear_bitmap
-    (1..height).each { |y| horizontal_color(1, width , y, 'o') }
+    (1..height).each { |y| horizontal_color(1, width, y, 'o') }
   end
 
   def to_s
