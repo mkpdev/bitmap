@@ -23,5 +23,6 @@ class BitmapEditor
 
       bitmap.public_send(action, *params)
     end
+    bitmap
   end
 end
