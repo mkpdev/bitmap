@@ -9,7 +9,7 @@ class BitmapEditor
     File.open(file).each do |line|
       params = line.chomp
                    .split(' ')
-                   .map { |e| e.match?(/\d+/)? e.to_i : e }
+                   .map { |e| (e =~ /\d+/) ? e.to_i : e }
 
       action = case params.shift
         when 'I' then :create
